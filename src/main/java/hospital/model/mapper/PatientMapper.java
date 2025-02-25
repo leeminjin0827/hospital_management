@@ -1,6 +1,7 @@
 package hospital.model.mapper;
 
 import hospital.model.dto.PatientDto;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

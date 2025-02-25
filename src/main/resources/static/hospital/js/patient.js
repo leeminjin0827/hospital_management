@@ -8,7 +8,7 @@ const pWrite = ( ) => {
     const pphone = document.querySelector('.pphone').value;
     const paddress = document.querySelector('.paddress').value;
 
-    const obj = { pname , pdate , pphone , paddress };
+    const obj = { name: pname , birthdate : pdate , phone : pphone , address : paddress };
     console.log( obj );
 
     axios.post( `/patient` , obj )
