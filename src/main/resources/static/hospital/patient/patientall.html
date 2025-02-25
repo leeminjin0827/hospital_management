@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/hospital.css">
+</head>
+<body>
+
+    <h1>환자 등록</h1>
+    <form class="form">
+        <div class="input_box">
+            <label for="pname">환자명</label>
+            <input type="text" id="pname" class="pname mb_10"/> </br>
+            <label for="pdate">생년월일</label>
+            <input type="text" id="pdate" class="pdate mb_10"/> </br>
+            <label for="pphone">전화번호</label>
+            <input type="text" id="pphone" class="pphone mb_10"/> </br>
+            <label for="paddress">주소</label>
+            <input type="text" id="paddress" class="paddress mb_10"/> </br>
+        </div>
+        <div>
+            <button type="button" onclick="pWrite()">등록</button>
+            <button type="button">수정</button>
+        </div>
+    </form>
+
+    <h1>환자 관리</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th >환자번호</th> <th>환자명</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><a href="patient.html">1</a></td> <td><a href="patient.html">강아지</a></td>
+        </tr>
+        <tr>
+            <td><a href="patient.html">2</a></td> <td><a href="patient.html">호랑이</a></td>
+        </tr>
+        <tr>
+            <td><a href="patient.html">3</a></td> <td><a href="patient.html">너구리</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="btn_box">
+        <button type="button" onclick="location.href='../index.html'">처음화면</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/patient.js"></script>
+
+</body>
+</html>

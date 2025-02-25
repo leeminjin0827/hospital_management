@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="hospital.model.mapper.AppointmentMapper">
+
+    <!-- 예약 등록 -->
+    <insert id="aWrite" parameterType="hospital.model.dto.AppointmentDto">
+        insert into appointment( patientid , doctorid , appointmentdate , appointmenttime ) values( #{patientid} , #{doctorid} , #{appointmentdate} , #{appointmenttime} )
+    </insert>
+
+    <!-- 예약 전체조회 -->
+    <select id="aList" resultType="hospital.model.dto.AppointmentDto">
+        select * from appointment
+    </select>
+
+    <!-- 환자별 예약 조회 -->
+    <select id="aView1" parameterType="int"
+                        resultType="hospital.model.dto.AppointmentDto">
+        select p.patientid, p.name as patient_name, p.phone as patient_phone,
+            a.appointmentid, a.appointmentdate, a.appointmenttime, a.status,
+            d.name as doctor_name, d.specialty as doctor_specialty
+            from appointment a
+            join patient p on a.patientid = p.patientid
+            join doctor d on a.doctorid = d.doctorid
+            where p.patientid = #{patientid}
+            order by p.patientid, a.appointmentdate, a.appointmenttime
+    </select>
+    <!-- 의사별 예약 조회 -->
+    <select id="aView2" parameterType="int"
+                        resultType="hospital.model.dto.AppointmentDto">
+        select d.doctorid, d.name as doctor_name, d.specialty as doctor_specialty,
+            a.appointmentid, a.appointmentdate, a.appointmenttime, a.status,
+            p.name as patient_name, p.phone as patient_phone
+            from appointment a
+            join doctor d on a.doctorid = d.doctorid
+            join patient p on a.patientid = p.patientid
+            where d.doctorid = #{doctorid}
+            order by d.doctorid, a.appointmentdate, a.appointmenttime;
+    </select>
+
+    <!-- 예약 수정 -->
+    <update id="aUpdate" parameterType="hospital.model.dto.AppointmentDto">
+        update appointment set appointmentdate = #{appointmentdate} , appointmenttime = #{appointmenttime} where appointmentid = #{appointmentid}
+    </update>
+
+    <!-- 예약 상태변경 1->0 -->
+    <update id="aDelete" parameterType="hospital.model.dto.AppointmentDto">
+        select status from appointment WHERE appointmentid = #{appointmentid}
+    </update>
+
+</mapper>
