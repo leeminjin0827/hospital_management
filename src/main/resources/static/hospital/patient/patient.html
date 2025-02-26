@@ -9,7 +9,7 @@
 
     <h1>환자 상세조회</h1>
 
-    <table class="table">
+    <table class="pttable table">
         <thead>
           <tr>
               <th>환자번호</th> <th>이름</th> <th>생년월일</th> <th>전화번호</th> <th>주소</th> <th>등록일자</th>
@@ -26,13 +26,29 @@
               <td>3</td> <td>강호동</td> <td>1998-08-27</td> <td>010-3030-2020</td> <td>경기도 기경도 도기경</td> <td>1111-11-11</td>
            </tr>
         </tbody>
-      </table>
+    </table>
+    <h1>환자 예약내역</h1>
+    <table class="pbtable table">
+        <thead>
+            <tr>
+                <th>의사명</th> <th>예약일</th> <th>예약시간</th> <th>상태</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>강호동</td> <td>2222</td> <td>라라라</td> <td>앙대</td>
+            </tr>
+        </tbody>
+    </table>
+
 
     <div class="btn_box">
       <button type="button" onclick="location.href='../index.html'">처음화면</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="../js/patientview.js"></script>
 
 </body>
 </html>

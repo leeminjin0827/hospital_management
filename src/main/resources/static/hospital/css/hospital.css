@@ -21,4 +21,6 @@ button{ padding: 5px; margin: auto auto; }
     padding: 20px 0px; margin-bottom: 50px;
 }
 .mb_10 { margin-bottom: 10px;}
+.ml_5 { margin-left: 5px; }
 .input_box{ margin: 20px 0px;}
+.table_btn{ width: 100px; }
